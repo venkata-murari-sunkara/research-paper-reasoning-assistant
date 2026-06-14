@@ -14,15 +14,11 @@ A Retrieval-Augmented Generation (RAG) application that allows users to upload r
 
 ---
 
-## 🏗️ Architecture 
+## 🏗️ Architecture
 
 Below is the system architecture illustrating how data flows dynamically between the frontend UI, the decoupled API endpoints, and the underlying RAG pipeline.
 
-![Research Assistant Architecture] (<assests/Research Assistant Architecture Diagram.png>)
-
-## Application Demo
-
-![Application Screenshot] (<assests/ui.png>)
+![Research Assistant Architecture](assets/architecture-diagram.png)
 
 ### Ingestion Pipeline (Left Branch)
 1. **Upload:** User uploads a PDF via the Streamlit interface, hitting the `/upload` endpoint.
@@ -35,6 +31,12 @@ Below is the system architecture illustrating how data flows dynamically between
 2. **Retrieval:** The Retriever cross-references the query vector against ChromaDB to extract the most semantically relevant chunks.
 3. **Synthesis:** The retrieved context and user query are compiled into a prompt and sent to GPT-4o-mini.
 4. **Response:** The user receives a comprehensive answer accompanied by source text attribution.
+
+---
+
+## 📸 Demo
+
+![Application Screenshot](assets/ui.png)
 
 ---
 
@@ -64,19 +66,24 @@ research-paper-reasoning-assistant/
 ├── research-data/          # Local PDF storage cache
 ├── chroma_db/              # Persistent vector store directory
 ├── requirements.txt        # Shared project dependencies
-├── .env                    # System environment variables (git-ignored)
+├── .env                     # System environment variables (git-ignored)
 └── README.md
-``` 
+```
 
-### ⚙️ Installation & Setup
+---
+
+## ⚙️ Installation & Setup
 
 ### 1. Clone Repository
+
 ```bash
 git clone https://github.com/venkata-murari-sunkara/research-paper-reasoning-assistant.git
 cd research-paper-reasoning-assistant
+```
 
 ### 2. Set Up Virtual Environment
 
+```bash
 # Create environment
 python -m venv venv
 
@@ -85,34 +92,39 @@ source venv/bin/activate
 
 # Activate Environment (Windows)
 venv\Scripts\activate
+```
 
 ### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Configure Environment Variables
+
 Create a `.env` file in the root directory of the project:
 
+```text
 OPENAI_API_KEY=your_actual_openai_api_key_here
+```
 
-### Run Backend
+### 5. Run Backend
+
+```bash
 uvicorn backend.main:app --reload
+```
 
-Backend URL:
-http://127.0.0.1:8000
+Backend URL: `http://127.0.0.1:8000`
 
-### Run Frontend
+### 6. Run Frontend
+
+```bash
 streamlit run frontend/app.py
+```
 
-Frontend URL:
-http://localhost:8501
+Frontend URL: `http://localhost:8501`
 
-## 👨‍💻 Author
-
-**Venkata Murari**
-
-- GitHub: https://github.com/venkata-murari-sunkara
-- LinkedIn: https://www.linkedin.com/in/venkata-murari/
+---
 
 ## 🎯 Key Concepts Demonstrated
 
@@ -125,4 +137,12 @@ http://localhost:8501
 - Streamlit Frontend Development
 - Production-Style AI System Architecture
 
-# research-paper-reasoning-assistant
+---
+
+
+## 👨‍💻 Author
+
+**Venkata Murari**
+
+- GitHub: [venkata-murari-sunkara](https://github.com/venkata-murari-sunkara)
+- LinkedIn: [venkata-murari](https://www.linkedin.com/in/venkata-murari/)
