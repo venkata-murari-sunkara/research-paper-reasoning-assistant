@@ -8,8 +8,8 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 from backend.config import embed_model, data_dir, chroma_db_dir, collection_name
 
 
-docs = SimpleDirectoryReader(data_dir).load_data()
-print(f"Loaded {len(docs)} documents")
+# docs = SimpleDirectoryReader(data_dir).load_data()
+# print(f"Loaded {len(docs)} documents")
 
 Settings.embed_model = HuggingFaceEmbedding(model_name=embed_model)
 
