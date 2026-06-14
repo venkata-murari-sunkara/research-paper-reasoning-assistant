@@ -4,4 +4,4 @@ __pycache__/
 *.pyc
 chroma_db/
 research-data/
-.DS_Store 
+.DS_Store
