@@ -5,7 +5,7 @@ uvicorn[standard]
 # RAG Framework & Vector DB (core only)
 llama-index-core
 llama-index-vector-stores-chroma
-llama-index-embeddings-huggingface
+# llama-index-embeddings-huggingface
 chromadb
 llama-index-embeddings-openai
 llama-index-llms-openai

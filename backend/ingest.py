@@ -9,8 +9,8 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 from backend.config import embed_model, data_dir, chroma_db_dir, collection_name
 
 
-docs = SimpleDirectoryReader(data_dir).load_data()
-print(f"Loaded {len(docs)} documents")
+# docs = SimpleDirectoryReader(data_dir).load_data()
+# print(f"Loaded {len(docs)} documents")
 
 # Settings.embed_model = HuggingFaceEmbedding(model_name=embed_model)
 Settings.embed_model = OpenAIEmbedding(model=embed_model)
@@ -20,6 +20,8 @@ Settings.node_parser = TokenTextSplitter(
     chunk_overlap= 150,
     separator= " "
 )
+
+os.makedirs(data_dir, exist_ok=True)
 
 Chroma_client = chromadb.PersistentClient(path= chroma_db_dir)
 Chroma_collection = Chroma_client.get_or_create_collection(collection_name)
