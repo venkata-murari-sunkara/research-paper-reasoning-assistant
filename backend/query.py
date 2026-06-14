@@ -22,7 +22,7 @@ query_engine = index.as_query_engine(similarity_top_k= 5)
 
 
 # question = "What is UR-BERT?"
-MIN_SCORE = 0.40
+MIN_SCORE = 0.20
 def ask_question(question: str):
     response = query_engine.query(question)
 
@@ -45,5 +45,4 @@ def ask_question(question: str):
         "answer": str(response),
         "sources": sources
     }
-
 
