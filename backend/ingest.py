@@ -2,16 +2,18 @@ import os, chromadb
 
 from llama_index.core import SimpleDirectoryReader, StorageContext, VectorStoreIndex, Settings
 from llama_index.core.node_parser import TokenTextSplitter
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+# from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 
 from backend.config import embed_model, data_dir, chroma_db_dir, collection_name
 
 
-# docs = SimpleDirectoryReader(data_dir).load_data()
-# print(f"Loaded {len(docs)} documents")
+docs = SimpleDirectoryReader(data_dir).load_data()
+print(f"Loaded {len(docs)} documents")
 
-Settings.embed_model = HuggingFaceEmbedding(model_name=embed_model)
+# Settings.embed_model = HuggingFaceEmbedding(model_name=embed_model)
+Settings.embed_model = OpenAIEmbedding(model=embed_model)
 
 Settings.node_parser = TokenTextSplitter(
     chunk_size= 1000, 
