@@ -2,27 +2,18 @@
 fastapi
 uvicorn[standard]
 
-# Frameworks & Vector DB
-llama-index
-langchain
-chromadb
+# RAG Framework & Vector DB (core only, not full package)
+llama-index-core
 llama-index-vector-stores-chroma
+llama-index-embeddings-huggingface
+chromadb
 
 # AI & Embeddings
 openai
-google-genai
-huggingface-hub
 sentence-transformers
-llama-index-embeddings-huggingface
 
-
-# PDF Processing
-pypdf
+# PDF Processing (pick one — pymupdf is faster/lighter)
 pymupdf
-
-# Database Connection
-sqlalchemy
-psycopg[binary]
 
 # Frontend
 streamlit
