@@ -1,0 +1,28 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+
+# Frameworks & Vector DB
+llama-index
+langchain
+chromadb
+llama-index-vector-stores-chroma
+
+# AI & Embeddings
+openai
+google-genai
+huggingface-hub
+sentence-transformers
+llama-index-embeddings-huggingface
+
+
+# PDF Processing
+pypdf
+pymupdf
+
+# Database Connection
+sqlalchemy
+psycopg[binary]
+
+# Frontend
+streamlit
