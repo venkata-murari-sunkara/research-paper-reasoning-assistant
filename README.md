@@ -1,13 +1,18 @@
-# Research Paper Reasoning Assistant 🤖
+# Research Paper Reasoning Assistant 
 
-A Retrieval-Augmented Generation (RAG) application that allows users to upload research papers, parse and index them in a local vector database, and ask natural language questions deeply grounded in the document context.
+A Retrieval-Augmented Generation (RAG) application that allows users to upload research papers, parse and index them in a vector database, and ask natural language questions deeply grounded in the document context.
+
+## 🌐 Live Demo
+
+- Frontend: https://research-paper-reasoning-assistant-dzpv4eczvwnwnb6vdju3l6.streamlit.app/
+- Backend API: https://research-paper-reasoning-assistant-api.onrender.com/docs
 
 ## 🚀 Features
 
 * **PDF Research Paper Upload:** Easily process dense, multi-page scientific papers.
 * **Automated Ingestion Pipeline:** Smart document chunking and node parsing via LlamaIndex.
-* **High-Quality Embeddings:** Dense vector generation using the state-of-the-art `BAAI/bge-small-en-v1.5` Sentence Transformer.
-* **Local Vector Storage:** Fast, persistent vector management powered by `ChromaDB`.
+* **High-Quality Embeddings:** Dense vector generation using `OpenAI text-embedding-3-small`.
+* **Persistent Vector Storage:** Fast, persistent vector management powered by `ChromaDB`.
 * **Semantic Retrieval & RAG:** Context-focused retrieval paired with `OpenAI GPT-4o-mini` for precise, grounded answers.
 * **Source Attribution:** Full transparency with similarity scores and exact context references mapped to every response.
 * **Decoupled Architecture:** Enterprise-ready layout featuring a FastAPI backend and an interactive Streamlit UI.
@@ -18,12 +23,12 @@ A Retrieval-Augmented Generation (RAG) application that allows users to upload r
 
 Below is the system architecture illustrating how data flows dynamically between the frontend UI, the decoupled API endpoints, and the underlying RAG pipeline.
 
-![Research Assistant Architecture](<assets/Research Assistant Architecture Diagram.png>)
+![Research Paper Reasoning Assistant Architecture] (<assets/Research Assistant Architecture Diagram.png>)
 
 ### Ingestion Pipeline (Left Branch)
 1. **Upload:** User uploads a PDF via the Streamlit interface, hitting the `/upload` endpoint.
 2. **Parsing:** LlamaIndex extracts text and splits the document into optimized chunks.
-3. **Embedding:** Text chunks are transformed into dense vectors using the BGE model.
+3. **Embedding:** Text chunks are transformed into dense vectors using OpenAI's embedding model.
 4. **Storage:** Vectors and metadata are indexed and persisted securely inside ChromaDB.
 
 ### Query Pipeline (Right Branch)
@@ -36,18 +41,29 @@ Below is the system architecture illustrating how data flows dynamically between
 
 ## 📸 Demo
 
-![Application Screenshot](assets/ui.png)
+![Application Screenshot] (<assets/ui.png>)
 
 ---
 
 ## 🛠️ Tech Stack
 
 * **Backend Framework:** FastAPI (Python)
+* **Frontend Framework:** Streamlit
 * **RAG Framework:** LlamaIndex
 * **Vector Database:** ChromaDB
-* **Embedding Model:** BAAI/bge-small-en-v1.5 (Local HuggingFace embedding)
-* **Language Model:** OpenAI GPT-4o-mini
-* **Frontend UI:** Streamlit
+* **Embedding Model:** OpenAI `text-embedding-3-small`
+* **Language Model:** OpenAI `GPT-4o-mini`
+* **Vector Retrieval:** LlamaIndex Retriever
+* **Deployment:** Render + Streamlit Community Cloud
+
+---
+
+## ☁️ Deployment
+
+- Backend API deployed on Render
+- Frontend deployed on Streamlit Community Cloud
+- Environment variables managed securely through deployment platform secrets
+- OpenAI API used for embeddings and response generation
 
 ---
 
@@ -139,6 +155,24 @@ Frontend URL: `http://localhost:8501`
 
 ---
 
+## 🚧 Challenges Solved
+
+- Resolved memory limitations when deploying local embedding models on Render's free tier.
+- Migrated from local Hugging Face embeddings to OpenAI embeddings for production deployment.
+- Prevented expensive document ingestion from executing during FastAPI startup.
+- Implemented source-grounded responses to reduce hallucinations.
+
+---
+
+## 🔮 Future Improvements
+
+- Multi-paper comparison and cross-document reasoning
+- RAG evaluation metrics (RAGAS) for retrieval quality
+- Swap LLM/embedding provider via config (Claude / local models)
+- Deploy with Pinecone for persistent cloud vector storage across restarts
+- Add confidence scoring on generated answers
+
+---
 
 ## 👨‍💻 Author
 
