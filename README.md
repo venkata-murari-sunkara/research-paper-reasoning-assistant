@@ -4,8 +4,10 @@ A Retrieval-Augmented Generation (RAG) application that allows users to upload r
 
 ## 🌐 Live Demo
 
-- Frontend: https://research-paper-reasoning-assistant-dzpv4eczvwnwnb6vdju3l6.streamlit.app/
-- Backend API: https://research-paper-reasoning-assistant-api.onrender.com/docs
+* **Frontend (Streamlit App):** [Try it here](https://research-paper-reasoning-assistant-dzpv4eczvwnwnb6vdju3l6.streamlit.app/)
+* **Backend API (Swagger Docs):** [View API docs](https://research-paper-reasoning-assistant-api.onrender.com/docs)
+
+> ⚠️ Note: The backend is hosted on Render's free tier and may take 30-60 seconds to wake up if it's been inactive. Please be patient on first load!
 
 ## 🚀 Features
 
