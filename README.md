@@ -23,7 +23,7 @@ A Retrieval-Augmented Generation (RAG) application that allows users to upload r
 
 Below is the system architecture illustrating how data flows dynamically between the frontend UI, the decoupled API endpoints, and the underlying RAG pipeline.
 
-![Research Paper Reasoning Assistant Architecture] (<assets/Research Assistant Architecture Diagram.png>)
+![Research Paper Reasoning Assistant Architecture](<assets/Research Assistant Architecture Diagram.png>)
 
 ### Ingestion Pipeline (Left Branch)
 1. **Upload:** User uploads a PDF via the Streamlit interface, hitting the `/upload` endpoint.
@@ -41,7 +41,7 @@ Below is the system architecture illustrating how data flows dynamically between
 
 ## 📸 Demo
 
-![Application Screenshot] (<assets/ui.png>)
+![Application Screenshot](<assets/ui.png>)
 
 ---
 
